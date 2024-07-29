@@ -1,8 +1,6 @@
 import io.restassured.response.ValidatableResponse;
 import org.hamcrest.Matchers;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-
 
 import static io.restassured.RestAssured.given;
 
@@ -26,13 +24,13 @@ public class PostmanTest {
     }
 
     @Test
-    public void postRawTextTest(){
+    public void postRawTextTest() {
         String rawText = "\"test\":\"value\"";
 
         given()
                 .body(rawText)
                 .when()
-                .post(URl+"/post")
+                .post(URl + "/post")
                 .then()
                 .log().all()
                 .assertThat()
@@ -42,6 +40,7 @@ public class PostmanTest {
 
 
     }
+
     @Test
     public void postDateTest() {
         String rawText = "\"test\":\"value\"";
@@ -56,8 +55,9 @@ public class PostmanTest {
                 .and()
                 .body("data", Matchers.equalTo(rawText));
     }
+
     @Test
-    public void putRawTextTest(){
+    public void putRawTextTest() {
         given()
                 .body(TEXT)
                 .when()
@@ -68,23 +68,25 @@ public class PostmanTest {
                 .body("data", Matchers.equalTo(TEXT));
 
     }
+
     @Test
-    public void patchRawTextTest(){
+    public void patchRawTextTest() {
         given()
                 .body(TEXT)
                 .when()
-                .patch(URl+"/patch")
+                .patch(URl + "/patch")
                 .then()
                 .log().all()
                 .assertThat()
                 .body("data", Matchers.equalTo(TEXT));
     }
+
     @Test
-    public void deleteRawTextTest(){
+    public void deleteRawTextTest() {
         given()
                 .body(TEXT)
                 .when()
-                .delete(URl+"/delete")
+                .delete(URl + "/delete")
                 .then()
                 .log().all()
                 .assertThat()

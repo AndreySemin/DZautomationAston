@@ -1,5 +1,3 @@
-import io.restassured.response.ExtractableResponse;
-
 public class ArgsPojo {
     private String foo1;
     private String foo2;
